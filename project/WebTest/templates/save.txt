@@ -1,0 +1,68 @@
+{% for test in c %}
+<div class="questions row pt-4">
+    <div class="col-12 col-md-6 col-sm-6 ">
+
+        <h4 class="text-secondary mx-4">Вопрос: {{test.question.id}}</h4>
+        <div id="{{test.question.id}}" class="question container pt-2 mx-3">
+            <p>{{test.question.question}}</p>
+        </div>
+    </div>
+    <div class="col-12 col-md-6  ">
+        <h4 class="text-secondary mx-2">Выберите варианты ответов:</h4>
+        <div class="container pt-2">
+            <div class="form-check">
+
+                {%if test.answerSend == test.question.answer1 %}
+                <input class="answer1 form-check-input" onclick="SaveTest('{{idTest}}')" checked type="checkbox" value="" name="flexCheckDefault1">
+                {% else %}
+                <input class="answer1 form-check-input" onclick="SaveTest('{{idTest}}')" type="checkbox" value="" name="flexCheckDefault1">
+                {% endif %}
+
+                <label class="answer1_label" for="flexCheckDefault1">
+                    {{test.question.answer1}}
+                </label>
+
+            </div>
+            <div class="form-check">
+
+                {%if test.answerSend == test.question.answer2 %}
+                <input class="answer2 form-check-input" onclick="SaveTest('{{idTest}}')" checked type="checkbox" value="" name="flexCheckChecked2">
+                {% else %}
+                <input class="answer2 form-check-input" onclick="SaveTest('{{idTest}}')" type="checkbox" value="" name="flexCheckChecked2">
+                {% endif %}
+
+                <label class="answer2_label" for="flexCheckChecked2">
+                    {{test.question.answer2}}
+                </label>
+
+            </div>
+            <div class="form-check">
+
+                {%if test.answerSend == test.question.answer3 %}
+                <input class="answer3 form-check-input" onclick="SaveTest('{{idTest}}')" checked type="checkbox" value="" name="flexCheckChecked3">
+                {% else %}
+                <input class="answer3 form-check-input" onclick="SaveTest('{{idTest}}')" type="checkbox" value="" name="flexCheckChecked3">
+                {% endif %}   
+
+                <label class="answer3_label" for="flexCheckChecked3">
+                    {{test.question.answer3}}
+                </label>
+
+            </div>
+            <div class="form-check">
+
+                {%if test.answerSend == test.question.answer4 %}
+                <input class="answer4 form-check-input" onclick="SaveTest('{{idTest}}')" checked type="checkbox" value="" name="flexCheckChecked4">
+                {% else %}
+                <input class="answer4 form-check-input" onclick="SaveTest('{{idTest}}')" type="checkbox" value="" name="flexCheckChecked4">
+                {% endif %}
+
+                <label class="answer4_label" for="flexCheckChecked4">
+                    {{test.question.answer4}}
+                </label>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
